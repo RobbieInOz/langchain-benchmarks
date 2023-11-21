@@ -1,0 +1,1205 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Tool Usage &#8212; LangChain Benchmarks 0.0.1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/tool_usage';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Datasets" href="datasets.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">LangChain Benchmarks 0.0.1</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    🦜💪 LangChain Benchmarks
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tool Usage</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/langchain-ai/langchain-benchmarks" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/tool_usage.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tool Usage</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tool Usage</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-an-agent">Define an agent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eval">Eval</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect">Inspect</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="tool-usage">
+<h1>Tool Usage<a class="headerlink" href="#tool-usage" title="Permalink to this headline">#</a></h1>
+<p>Let’s see how to evaluate an agent’s ability to use tools.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_benchmarks</span> <span class="kn">import</span> <span class="n">clone_public_dataset</span><span class="p">,</span> <span class="n">registry</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For this code to work, please configure LangSmith environment variables with your credentials.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">registry</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead>
+<tr><th>Name                            </th><th>Type          </th><th>Dataset ID                                                               </th><th>Description  </th></tr>
+</thead>
+<tbody>
+<tr><td>Tool Usage - Typewriter (1 func)</td><td>ToolUsageTask </td><td>placeholder                                                              </td><td>Environment with a single function that accepts a single letter as input, and &quot;prints&quot; it on a piece of paper.
+
+The objective of this task is to evaluate the ability to use the provided tools to repeat a given input string.
+
+For example, if the string is &#x27;abc&#x27;, the tools &#x27;a&#x27;, &#x27;b&#x27;, and &#x27;c&#x27; must be invoked in that order.
+
+The dataset includes examples of varying difficulty. The difficulty is measured by the length of the string.              </td></tr>
+<tr><td>Tool Usage - Typewriter         </td><td>ToolUsageTask </td><td>placeholder                                                              </td><td>Environment with 26 functions each representing a letter of the alphabet.
+
+In this variation of the typewriter task, there are 26 parameterless functions, where each function represents a letter of the alphabet (instead of a single function that takes a letter as an argument).
+
+The object is to evaluate the ability of use the functions to repeat the given string.
+
+For example, if the string is &#x27;abc&#x27;, the tools &#x27;a&#x27;, &#x27;b&#x27;, and &#x27;c&#x27; must be invoked in that order.
+
+The dataset includes examples of varying difficulty. The difficulty is measured by the length of the string.              </td></tr>
+<tr><td>Tool Usage - Relational Data    </td><td>ToolUsageTask </td><td>e95d45da-aaa3-44b3-ba2b-7c15ff6e46f5                                     </td><td>Environment with fake data about users and their locations and favorite foods.
+
+The environment provides a set of tools that can be used to query the data.
+
+The objective of this task is to evaluate the ability to use the provided tools to answer questions about relational data.
+
+The dataset contains 21 examples of varying difficulty. The difficulty is measured by the number of tools that need to be used to answer the question.
+
+Each example is composed of a question, a reference answer, and information about the sequence in which tools should be used to answer the question.
+
+Success is measured by the ability to answer the question correctly, and efficiently.              </td></tr>
+<tr><td>Multiverse Math                 </td><td>ToolUsageTask </td><td>placeholder                                                              </td><td>An environment that contains a few basic math operations, but with altered results.
+
+For example, multiplication of 5*3 will be re-interpreted as 5*3*1.1. The basic operations retain some basic properties, such as commutativity, associativity, and distributivity; however, the results are different than expected.
+
+The objective of this task is to evaluate the ability to use the provided tools to solve simple math questions and ignore any innate knowledge about math.              </td></tr>
+<tr><td>Email Extraction                </td><td>ExtractionTask</td><td>https://smith.langchain.com/public/36bdfe7d-3cd1-4b36-b957-d12d95810a2b/d</td><td>A dataset of 42 real emails deduped from a spam folder, with semantic HTML tags removed, as well as a script for initial extraction and formatting of other emails from an arbitrary .mbox file like the one exported by Gmail.
+
+Some additional cleanup of the data was done by hand after the initial pass.
+
+See https://github.com/jacoblee93/oss-model-extraction-evals.              </td></tr>
+</tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">task</span> <span class="o">=</span> <span class="n">registry</span><span class="p">[</span><span class="s2">&quot;Tool Usage - Relational Data&quot;</span><span class="p">]</span>
+<span class="n">task</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+<tr><td>Name       </td><td>Tool Usage - Relational Data        </td></tr>
+<tr><td>Type       </td><td>ToolUsageTask                       </td></tr>
+<tr><td>Dataset ID </td><td>e95d45da-aaa3-44b3-ba2b-7c15ff6e46f5</td></tr>
+<tr><td>Description</td><td>Environment with fake data about users and their locations and favorite foods.
+
+The environment prov...                                     </td></tr>
+</tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Environment with fake data about users and their locations and favorite foods.
+
+The environment provides a set of tools that can be used to query the data.
+
+The objective of this task is to evaluate the ability to use the provided tools to answer questions about relational data.
+
+The dataset contains 21 examples of varying difficulty. The difficulty is measured by the number of tools that need to be used to answer the question.
+
+Each example is composed of a question, a reference answer, and information about the sequence in which tools should be used to answer the question.
+
+Success is measured by the ability to answer the question correctly, and efficiently.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Clone the dataset associaetd with this task</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clone_public_dataset</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">dataset_id</span><span class="p">,</span> <span class="n">dataset_name</span><span class="o">=</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset Tool Usage - Relational Data already exists. Skipping.
+You can access the dataset at https://smith.langchain.com/o/e081f11e-fbd2-41b4-9fa8-5d76c76ef854/datasets/f2b5a831-8eef-4bc7-b6de-68078b87350f.
+</pre></div>
+</div>
+</div>
+</div>
+<section id="define-an-agent">
+<h2>Define an agent<a class="headerlink" href="#define-an-agent" title="Permalink to this headline">#</a></h2>
+<p>Let’s build an agent that we can use for evaluation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_benchmarks.tool_usage</span> <span class="kn">import</span> <span class="n">agents</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent_factory</span> <span class="o">=</span> <span class="n">agents</span><span class="o">.</span><span class="n">OpenAIAgentFactory</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo-16k&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s test that our agent works</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span> <span class="o">=</span> <span class="n">agent_factory</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;who is bob?&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;question&#39;: &#39;who is bob?&#39;,
+ &#39;output&#39;: &#39;Bob is a user with the name &quot;Bob&quot;.&#39;,
+ &#39;intermediate_steps&#39;: [(AgentActionMessageLog(tool=&#39;find_users_by_name&#39;, tool_input={&#39;name&#39;: &#39;bob&#39;}, log=&quot;\nInvoking: `find_users_by_name` with `{&#39;name&#39;: &#39;bob&#39;}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;name&quot;: &quot;bob&quot;\n}&#39;, &#39;name&#39;: &#39;find_users_by_name&#39;}})]),
+   [{&#39;id&#39;: 21, &#39;name&#39;: &#39;Bob&#39;},
+    {&#39;id&#39;: 41, &#39;name&#39;: &#39;Donna&#39;},
+    {&#39;id&#39;: 1, &#39;name&#39;: &#39;Alice&#39;},
+    {&#39;id&#39;: 35, &#39;name&#39;: &#39;Charlie&#39;},
+    {&#39;id&#39;: 42, &#39;name&#39;: &#39;Eve&#39;},
+    {&#39;id&#39;: 43, &#39;name&#39;: &#39;Frank The Cat&#39;}]),
+  (AgentActionMessageLog(tool=&#39;get_user_name&#39;, tool_input={&#39;user_id&#39;: 21}, log=&quot;\nInvoking: `get_user_name` with `{&#39;user_id&#39;: 21}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;user_id&quot;: 21\n}&#39;, &#39;name&#39;: &#39;get_user_name&#39;}})]),
+   &#39;Bob&#39;)]}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eval">
+<h2>Eval<a class="headerlink" href="#eval" title="Permalink to this headline">#</a></h2>
+<p>Let’s evaluate an agent now</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_benchmarks.tool_usage</span> <span class="kn">import</span> <span class="n">STANDARD_AGENT_EVALUATOR</span>
+<span class="kn">from</span> <span class="nn">langsmith.client</span> <span class="kn">import</span> <span class="n">Client</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_run</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">run_on_dataset</span><span class="p">(</span>
+    <span class="n">dataset_name</span><span class="o">=</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+    <span class="n">llm_or_chain_factory</span><span class="o">=</span><span class="n">agent_factory</span><span class="o">.</span><span class="n">create</span><span class="p">,</span>
+    <span class="n">evaluation</span><span class="o">=</span><span class="n">STANDARD_AGENT_EVALUATOR</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;openai-functions&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>View the evaluation results for project &#39;test-puzzled-fold-42&#39; at:
+https://smith.langchain.com/o/e081f11e-fbd2-41b4-9fa8-5d76c76ef854/projects/p/3d206d3f-aad1-4226-86a6-4161857e5bca?eval=true
+
+View all tests for Dataset Tool Usage - Relational Data at:
+https://smith.langchain.com/o/e081f11e-fbd2-41b4-9fa8-5d76c76ef854/datasets/f2b5a831-8eef-4bc7-b6de-68078b87350f
+[-------------------------------------------------&gt;] 21/21
+ Eval quantiles:
+                                0.25  0.5  0.75      mean  mode
+Intermediate steps correctness   0.0  1.0   1.0  0.571429   1.0
+# steps / # expected steps       1.0  1.0   1.0  2.285714   1.0
+correctness                      0.0  1.0   1.0  0.666667   1.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="inspect">
+<h1>Inspect<a class="headerlink" href="#inspect" title="Permalink to this headline">#</a></h1>
+<p>Here, we’ll take a look at the underlying results a little bit.</p>
+<p>A few things to note:</p>
+<ul class="simple">
+<li><p>The correctness is 66% (so it’s messing up a lot!)</p></li>
+<li><p>The number of tool invocations made by the agent can be very large; e.g., 15 invocations, when only a single invocation was actually needed.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">test_run</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">&quot;records&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;correctness&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6666666666666666
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_expected_steps&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;reference.expected_steps&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;actual_number_of_steps&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;output.intermediate_steps&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Intermediate steps correctness</th>
+      <th># steps / # expected steps</th>
+      <th>correctness</th>
+      <th>input.question</th>
+      <th>output.question</th>
+      <th>output.output</th>
+      <th>output.intermediate_steps</th>
+      <th>reference.reference</th>
+      <th>reference.order_matters</th>
+      <th>reference.expected_steps</th>
+      <th>num_expected_steps</th>
+      <th>actual_number_of_steps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>What is the city for location ID 1?</td>
+      <td>What is the city for location ID 1?</td>
+      <td>The city for location ID 1 is New York.</td>
+      <td>[(tool='get_city_for_location' tool_input={'lo...</td>
+      <td>New York</td>
+      <td>True</td>
+      <td>[get_city_for_location]</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>What is the name of food with id 6?</td>
+      <td>What is the name of food with id 6?</td>
+      <td>The name of the food with ID 6 is Pasta.</td>
+      <td>[(tool='get_food_name' tool_input={'food_id': ...</td>
+      <td>Pasta</td>
+      <td>True</td>
+      <td>[get_food_name]</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>what is eve's user id?</td>
+      <td>what is eve's user id?</td>
+      <td>Eve's user ID is 42.</td>
+      <td>[(tool='find_users_by_name' tool_input={'name'...</td>
+      <td>42</td>
+      <td>True</td>
+      <td>[find_users_by_name]</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>15.0</td>
+      <td>0</td>
+      <td>get the current user id</td>
+      <td>get the current user id</td>
+      <td>Agent stopped due to iteration limit or time l...</td>
+      <td>[(tool='get_current_user_id' tool_input={} log...</td>
+      <td>35</td>
+      <td>True</td>
+      <td>[get_current_user_id]</td>
+      <td>1</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>How many users by the name of bob?</td>
+      <td>How many users by the name of bob?</td>
+      <td>There are multiple users with the name "Bob".</td>
+      <td>[(tool='find_users_by_name' tool_input={'name'...</td>
+      <td>1</td>
+      <td>True</td>
+      <td>[find_users_by_name]</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;actual_number_of_steps&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Intermediate steps correctness</th>
+      <th># steps / # expected steps</th>
+      <th>correctness</th>
+      <th>input.question</th>
+      <th>output.question</th>
+      <th>output.output</th>
+      <th>output.intermediate_steps</th>
+      <th>reference.reference</th>
+      <th>reference.order_matters</th>
+      <th>reference.expected_steps</th>
+      <th>num_expected_steps</th>
+      <th>actual_number_of_steps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>15.0</td>
+      <td>0</td>
+      <td>get the current user id</td>
+      <td>get the current user id</td>
+      <td>Agent stopped due to iteration limit or time l...</td>
+      <td>[(tool='get_current_user_id' tool_input={} log...</td>
+      <td>35</td>
+      <td>True</td>
+      <td>[get_current_user_id]</td>
+      <td>1</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0</td>
+      <td>7.5</td>
+      <td>0</td>
+      <td>weather in LA right now?</td>
+      <td>weather in LA right now?</td>
+      <td>Agent stopped due to iteration limit or time l...</td>
+      <td>[(tool='find_locations_by_name' tool_input={'c...</td>
+      <td>Sunny, Temperature: 75°F</td>
+      <td>True</td>
+      <td>[find_locations_by_name, get_current_weather_f...</td>
+      <td>2</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0</td>
+      <td>7.5</td>
+      <td>0</td>
+      <td>time in chicago</td>
+      <td>time in chicago</td>
+      <td>Agent stopped due to iteration limit or time l...</td>
+      <td>[(tool='find_locations_by_name' tool_input={'c...</td>
+      <td>2023-11-14 11:15 AM</td>
+      <td>True</td>
+      <td>[find_locations_by_name, get_current_time_for_...</td>
+      <td>2</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>0</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>whats the name of the city where bob lives?</td>
+      <td>whats the name of the city where bob lives?</td>
+      <td>The name of the city where Bob lives is Los An...</td>
+      <td>[(tool='get_user_location' tool_input={'user_i...</td>
+      <td>Los Angeles</td>
+      <td>True</td>
+      <td>[find_users_by_name, get_user_location, get_ci...</td>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>do bob and alice live in the same city?</td>
+      <td>do bob and alice live in the same city?</td>
+      <td>No, Bob and Alice do not live in the same city...</td>
+      <td>[(tool='find_users_by_name' tool_input={'name'...</td>
+      <td>no</td>
+      <td>False</td>
+      <td>[find_users_by_name, get_user_location, get_ci...</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>0</td>
+      <td>2.0</td>
+      <td>0</td>
+      <td>Frank who is Even's friend is allergic to dair...</td>
+      <td>Frank who is Even's friend is allergic to dair...</td>
+      <td>Frank is not allergic to dairy, so he can eat ...</td>
+      <td>[(tool='find_users_by_name' tool_input={'name'...</td>
+      <td>yes</td>
+      <td>True</td>
+      <td>[find_users_by_name, get_food_allergic_ingredi...</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>do alice and charlie use the same email provider?</td>
+      <td>do alice and charlie use the same email provider?</td>
+      <td>No, Alice uses the email provider "gmail.com" ...</td>
+      <td>[(tool='find_users_by_name' tool_input={'name'...</td>
+      <td>no</td>
+      <td>True</td>
+      <td>[find_users_by_name, get_user_email, get_user_...</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>Donna is about to go outside. Does she need an...</td>
+      <td>Donna is about to go outside. Does she need an...</td>
+      <td>Yes, Donna needs an umbrella because it is cur...</td>
+      <td>[(tool='find_users_by_name' tool_input={'name'...</td>
+      <td>yes</td>
+      <td>True</td>
+      <td>[find_users_by_name, get_user_location, get_cu...</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>what is the current users favorite color and n...</td>
+      <td>what is the current users favorite color and n...</td>
+      <td>The current user's favorite color is yellow an...</td>
+      <td>[(tool='get_current_user_id' tool_input={} log...</td>
+      <td>yellow and Charlie</td>
+      <td>True</td>
+      <td>[get_current_user_id, get_user_favorite_color,...</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>what is the current users favorite color?</td>
+      <td>what is the current users favorite color?</td>
+      <td>The current user's favorite color is yellow.</td>
+      <td>[(tool='get_current_user_id' tool_input={} log...</td>
+      <td>yellow</td>
+      <td>True</td>
+      <td>[get_current_user_id, get_user_favorite_color]</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>eve ate a serving of sushi, what allergens was...</td>
+      <td>eve ate a serving of sushi, what allergens was...</td>
+      <td>If Eve ate a serving of sushi, she would have ...</td>
+      <td>[(tool='find_foods_by_name' tool_input={'food'...</td>
+      <td>fish, soy</td>
+      <td>True</td>
+      <td>[find_foods_by_name, get_food_allergic_ingredi...</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>If i eat a serving of pizza, how many calories...</td>
+      <td>If i eat a serving of pizza, how many calories...</td>
+      <td>If you eat a serving of pizza, you will consum...</td>
+      <td>[(tool='find_foods_by_name' tool_input={'food'...</td>
+      <td>285 calories</td>
+      <td>True</td>
+      <td>[find_foods_by_name, get_food_calories]</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>list the allergens in chocolate</td>
+      <td>list the allergens in chocolate</td>
+      <td>The allergens in chocolate are milk and soy.</td>
+      <td>[(tool='find_foods_by_name' tool_input={'food'...</td>
+      <td>milk, soy</td>
+      <td>True</td>
+      <td>[find_foods_by_name, get_food_allergic_ingredi...</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>find donna's favorite color</td>
+      <td>find donna's favorite color</td>
+      <td>Donna's favorite color is green.</td>
+      <td>[(tool='find_users_by_name' tool_input={'name'...</td>
+      <td>green</td>
+      <td>True</td>
+      <td>[find_users_by_name, get_user_favorite_color]</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>what is alice's email address?</td>
+      <td>what is alice's email address?</td>
+      <td>Alice's email address is alice@gmail.com.</td>
+      <td>[(tool='find_users_by_name' tool_input={'name'...</td>
+      <td>alice@gmail.com</td>
+      <td>True</td>
+      <td>[find_users_by_name, get_user_email]</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>What is the name of food with id 6?</td>
+      <td>What is the name of food with id 6?</td>
+      <td>The name of the food with ID 6 is Pasta.</td>
+      <td>[(tool='get_food_name' tool_input={'food_id': ...</td>
+      <td>Pasta</td>
+      <td>True</td>
+      <td>[get_food_name]</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>How many users by the name of bob?</td>
+      <td>How many users by the name of bob?</td>
+      <td>There are multiple users with the name "Bob".</td>
+      <td>[(tool='find_users_by_name' tool_input={'name'...</td>
+      <td>1</td>
+      <td>True</td>
+      <td>[find_users_by_name]</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>what is eve's user id?</td>
+      <td>what is eve's user id?</td>
+      <td>Eve's user ID is 42.</td>
+      <td>[(tool='find_users_by_name' tool_input={'name'...</td>
+      <td>42</td>
+      <td>True</td>
+      <td>[find_users_by_name]</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>What is the city for location ID 1?</td>
+      <td>What is the city for location ID 1?</td>
+      <td>The city for location ID 1 is New York.</td>
+      <td>[(tool='get_city_for_location' tool_input={'lo...</td>
+      <td>New York</td>
+      <td>True</td>
+      <td>[get_city_for_location]</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>Is it likely that Donna is awake right now?</td>
+      <td>Is it likely that Donna is awake right now?</td>
+      <td>I'm sorry, but I don't have access to informat...</td>
+      <td>[]</td>
+      <td>yes</td>
+      <td>True</td>
+      <td>[find_users_by_name, get_user_location, get_cu...</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>Is it likely that Donna is outside with an umb...</td>
+      <td>Is it likely that Donna is outside with an umb...</td>
+      <td>I'm sorry, but I don't have access to real-tim...</td>
+      <td>[]</td>
+      <td>yes</td>
+      <td>False</td>
+      <td>[find_users_by_name, get_user_location, get_cu...</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>An example of a poorly behaving agent that seems to have gotten stuck in a loop!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;output.intermediate_steps&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(AgentActionMessageLog(tool=&#39;find_locations_by_name&#39;, tool_input={&#39;city&#39;: &#39;Chicago&#39;}, log=&quot;\nInvoking: `find_locations_by_name` with `{&#39;city&#39;: &#39;Chicago&#39;}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;city&quot;: &quot;Chicago&quot;\n}&#39;, &#39;name&#39;: &#39;find_locations_by_name&#39;}})]),
+  [{&#39;id&#39;: 3, &#39;city&#39;: &#39;Chicago&#39;},
+   {&#39;id&#39;: 5, &#39;city&#39;: &#39;Miami&#39;},
+   {&#39;id&#39;: 2, &#39;city&#39;: &#39;Los Angeles&#39;},
+   {&#39;id&#39;: 4, &#39;city&#39;: &#39;Houston&#39;},
+   {&#39;id&#39;: 1, &#39;city&#39;: &#39;New York&#39;}]),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;),
+ (AgentActionMessageLog(tool=&#39;get_current_time_for_location&#39;, tool_input={&#39;location_id&#39;: 3}, log=&quot;\nInvoking: `get_current_time_for_location` with `{&#39;location_id&#39;: 3}`\n\n\n&quot;, message_log=[AIMessage(content=&#39;&#39;, additional_kwargs={&#39;function_call&#39;: {&#39;arguments&#39;: &#39;{\n  &quot;location_id&quot;: 3\n}&#39;, &#39;name&#39;: &#39;get_current_time_for_location&#39;}})]),
+  &#39;2023-11-14 11:15 AM&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="datasets.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Datasets</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tool Usage</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-an-agent">Define an agent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eval">Eval</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect">Inspect</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Langchain AI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Langchain AI.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
